@@ -1,3 +1,3 @@
-connection: "datablocks_spectrum"
+connection: "datawarehouse"
 
 include: "rs.explore"

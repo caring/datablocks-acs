@@ -3,7 +3,7 @@ view: rs_zcta_distances {
   derived_table: {
     sql: SELECT *
         FROM
-          datablocks_spectrum.zcta_distances
+          looker_datablock.acs_fast_facts_zcta_distances
         WHERE
           zip1 = {% parameter zcta_distances.zip1 %}
         UNION ALL

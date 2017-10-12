@@ -13,7 +13,7 @@ CREATE external TABLE zcta_distances(
 row format delimited
 fields terminated by ','
 stored as textfile
-location 's3://looker-datablocks/acs_fast_facts/zcta_distances/';
+location 's3://looker_datablock/acs_fast_facts/zcta_distances/';
 ```
 
 ```
@@ -50,7 +50,7 @@ CREATE external TABLE zcta_to_tract_w_state(
 row format delimited
 fields terminated by ','
 stored as textfile
-location 's3://looker-datablocks/acs_fast_facts/zcta_to_tract_w_state/';
+location 's3://looker_datablock/acs_fast_facts/zcta_to_tract_w_state/';
 ```
 
 
@@ -76,7 +76,7 @@ CREATE external TABLE fast_facts(
 row format delimited
 fields terminated by ','
 stored as textfile
-location 's3://looker-datablocks/acs_fast_facts/fast_facts/';
+location 's3://looker_datablock/acs_fast_facts/fast_facts/';
 ```
 
 ```
@@ -138,5 +138,5 @@ CREATE external TABLE geo2015(
 row format delimited
 fields terminated by ','
 stored as textfile
-location 's3://looker-datablocks/acs_fast_facts/geo_2015/';
+location 's3://looker_datablock/acs_fast_facts/geo_2015/';
 ```

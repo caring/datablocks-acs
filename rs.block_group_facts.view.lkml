@@ -1,5 +1,5 @@
 view: rs_block_group_facts {
-  sql_table_name: datablocks_spectrum.fast_facts ;;
+  sql_table_name: looker_datablock.acs_fast_facts_fast_facts ;;
 
   dimension: logrecno_bg_map_block_group {
     hidden: yes
@@ -24,7 +24,7 @@ view: rs_block_group_facts {
     type: number
     group_label: "Households"
     label: "Average Persons per Household"
-    sql: ${total_population}/NULLIF(${housing_units}, 0) ;;
+    sql: 1.00*${total_population}/NULLIF(${housing_units}, 0) ;;
     value_format_name: decimal_2
   }
 
@@ -40,7 +40,7 @@ view: rs_block_group_facts {
     type: number
     group_label: "Households"
     label: "Average Income per Household"
-    sql: ${aggregate_income}/NULLIF(${housing_units}, 0) ;;
+    sql: 1.00*${aggregate_income}/NULLIF(${housing_units}, 0) ;;
     value_format_name: usd_0
   }
 
@@ -59,14 +59,14 @@ view: rs_block_group_facts {
     type: number
     label: "Male % of Population"
     group_label: "Sex"
-    sql: ${male_population}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${male_population}/NULLIF(${total_population}, 0) ;;
     value_format_name: percent_2
   }
   measure:  pct_female{
     type: number
     label: "Female % of Population"
     group_label: "Sex"
-    sql: ${female_population}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${female_population}/NULLIF(${total_population}, 0) ;;
     value_format_name: percent_2
   }
 
@@ -113,42 +113,42 @@ view: rs_block_group_facts {
     group_label: "Race"
     type: number
     value_format_name: percent_2
-    sql: ${white_alone_or_in_combo}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${white_alone_or_in_combo}/NULLIF(${total_population}, 0) ;;
   }
   measure: pct_black {
     label: "Black/African American % of Population"
     group_label: "Race"
     type: number
     value_format_name: percent_2
-    sql: ${black_alone_or_in_combo}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${black_alone_or_in_combo}/NULLIF(${total_population}, 0) ;;
   }
   measure: pct_asian {
     label: "Asian % of Population"
     group_label: "Race"
     type: number
     value_format_name: percent_2
-    sql: ${asian_alone_or_in_combo}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${asian_alone_or_in_combo}/NULLIF(${total_population}, 0) ;;
   }
   measure: pct_amind {
     label: "American Indian or Native Alaskan % of Population"
     group_label: "Race"
     type: number
     value_format_name: percent_2
-    sql: ${amind_alone_or_in_combo}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${amind_alone_or_in_combo}/NULLIF(${total_population}, 0) ;;
   }
   measure: pct_nathaw {
     label: "Native Hawaiian or Other Pacific Islander % of Population"
     group_label: "Race"
     type: number
     value_format_name: percent_2
-    sql: ${nat_haw_alone_or_in_combo}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${nat_haw_alone_or_in_combo}/NULLIF(${total_population}, 0) ;;
   }
   measure: pct_white_nh {
     label: "White, Non-Hispanic % of Population"
     group_label: "Race"
     type: number
     value_format_name: percent_2
-    sql: ${white_non_hisp}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${white_non_hisp}/NULLIF(${total_population}, 0) ;;
   }
 
   measure: hispanic_or_latino {
@@ -160,14 +160,14 @@ view: rs_block_group_facts {
   measure: pct_hispanic_or_latino {
     label: "Hispanic or Latino % of Population (Any Race)"
     type: number
-    sql: ${hispanic_or_latino}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${hispanic_or_latino}/NULLIF(${total_population}, 0) ;;
     group_label: "Hispanic/Latino"
     value_format_name: percent_2
   }
   measure: pct_non_hispanic_or_latino {
     label: "Non-Hispanic, Non-Latino % of Population (Any Race)"
     type: number
-    sql: 1-(${hispanic_or_latino}/NULLIF(${total_population}, 0)) ;;
+    sql: 1-(1.00*${hispanic_or_latino}/NULLIF(${total_population}, 0)) ;;
     group_label: "Hispanic/Latino"
     value_format_name: percent_2
   }
@@ -200,21 +200,21 @@ view: rs_block_group_facts {
   measure: pct_under_18 {
     label: "% of Population 17 years and younger"
     type: number
-    sql: ${under_18}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${under_18}/NULLIF(${total_population}, 0) ;;
     group_label: "Age"
     value_format_name: percent_2
   }
   measure: pct_18_64 {
     label: "% of Population 18 and 64 years"
     type: number
-    sql: ${eighteen_to_64}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${eighteen_to_64}/NULLIF(${total_population}, 0) ;;
     group_label: "Age"
     value_format_name: percent_2
   }
   measure: pct_65_over {
     label: "% of Population 65 and older"
     type: number
-    sql: ${sixty_five_and_over}/NULLIF(${total_population}, 0) ;;
+    sql: 1.00*${sixty_five_and_over}/NULLIF(${total_population}, 0) ;;
     group_label: "Age"
     value_format_name: percent_2
   }
