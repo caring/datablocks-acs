@@ -1,4 +1,5 @@
 include: "rs.*.view.lkml"
+include: "zip_codes.view.lkml"
 
 explore: fast_facts {
   from: rs_logrecno_bg_map
@@ -21,5 +22,11 @@ explore: fast_facts {
     sql_on: ${tract_zcta_map.ZCTA5} = ${zcta_distances.zip2} ;;
     relationship: one_to_one
     required_joins: [tract_zcta_map]
+  }
+
+  join: city_names {
+    from: zip_codes
+    sql_on: ${city_names.code} = ${tract_zcta_map.ZCTA5} ;;
+    relationship: many_to_one
   }
 }
